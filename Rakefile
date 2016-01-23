@@ -84,3 +84,8 @@ task :bench_cop, [:cop, :srcpath, :times] do |_task, args|
     end
   end)
 end
+
+desc 'Generate dependency graph between cops'
+RSpec::Core::RakeTask.new(:cop_dependency_graph) do |t|
+  t.rspec_opts = '--fail-fast --require ./lib/rubocop/cop/body_cam.rb'
+end
